@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentoria Permissão – Michelle | Transforme sua mente, transforme seu corpo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Raleway:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #e8467c;
+    --pink-light: #f472a4;
+    --pink-dark: #c0325f;
+    --purple-dark: #1a0a2e;
+    --purple-mid: #2d1152;
+    --purple: #4a1a8a;
+    --purple-light: #7b3fc4;
+    --gold: #d4a844;
+    --gold-light: #f0c86a;
+    --white: #ffffff;
+    --off-white: #fdf5f8;
+    --text-gray: #c9b8d4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--purple-dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 20% 50%, #3d1070 0%, #1a0a2e 50%, #0d0618 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 80px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,70,124,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(123,63,196,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-nav {
+    position: absolute;
+    top: 30px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  /* AJUSTE 1: Logo do hero maior */
+  .hero-nav img {
+    height: 200px;
+    filter: drop-shadow(0 0 20px rgba(232,70,124,0.6));
+  }
+
+  .hero-badge {
+    background: linear-gradient(135deg, rgba(232,70,124,0.2), rgba(123,63,196,0.2));
+    border: 1px solid rgba(232,70,124,0.4);
+    border-radius: 50px;
+    padding: 8px 24px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink-light);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0c86a 40%, #e8467c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative; z-index: 1;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 400;
+    color: var(--text-gray);
+    text-align: center;
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-subtitle em {
+    color: var(--pink-light);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .cta-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 20px 50px;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 15px 50px rgba(232,70,124,0.5);
+    transition: all 0.3s ease;
+    position: relative; z-index: 1;
+    border: none; cursor: pointer;
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 25px 70px rgba(232,70,124,0.7);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 50px;
+    margin-top: 70px;
+    position: relative; z-index: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+  }
+
+  /* WAVE DIVIDER */
+  .wave-divider {
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wave-divider svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* COPY SECTION */
+  .copy-section {
+    background: linear-gradient(180deg, #120520 0%, #1a0a2e 100%);
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .copy-section::before {
+    content: '❝';
+    position: absolute;
+    top: 40px; left: 40px;
+    font-size: 15rem;
+    color: rgba(232,70,124,0.04);
+    font-family: serif;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--pink-light);
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .section-title span { color: var(--pink-light); }
+
+  .copy-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #d8cce5;
+    margin-bottom: 20px;
+  }
+
+  .copy-text strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .copy-highlight {
+    background: linear-gradient(135deg, rgba(232,70,124,0.12), rgba(123,63,196,0.12));
+    border-left: 4px solid var(--pink);
+    padding: 24px 28px;
+    margin: 40px 0;
+    border-radius: 0 12px 12px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--off-white);
+    line-height: 1.6;
+  }
+
+  /* PROFILE SECTION */
+  .profile-section {
+    background: radial-gradient(ellipse at 80% 50%, rgba(123,63,196,0.2) 0%, transparent 60%), #1a0a2e;
+    padding: 100px 20px;
+  }
+
+  .profile-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  @media(max-width:768px){
+    .profile-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .profile-image-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* AJUSTE 2: Foto da Michelle menor e mais harmônica */
+  /*.profile-img-circle {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 5px solid transparent;
+    background: linear-gradient(135deg, var(--pink), var(--purple-light)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    box-shadow: 0 30px 80px rgba(232,70,124,0.35), 0 0 0 8px rgba(232,70,124,0.1);
+  }*/
+  .profile-img-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 5px solid #ff4fa0;
+  box-shadow: 0 30px 80px rgba(232,70,124,0.35);
+}
+
+  .profile-badge-wrap {
+    position: absolute;
+    bottom: 10px; right: 20px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 20px;
+    padding: 10px 18px;
+    text-align: center;
+    color: #1a0a2e;
+  }
+
+  .profile-badge-wrap strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .profile-badge-wrap span {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .profile-content .section-eyebrow { margin-bottom: 12px; }
+  .profile-content .section-title { margin-bottom: 24px; }
+
+  .profile-details {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #c9b8d4;
+    margin-bottom: 20px;
+  }
+
+  .profile-details strong { color: #fff; }
+
+  .credential-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .pill {
+    background: rgba(232,70,124,0.15);
+    border: 1px solid rgba(232,70,124,0.3);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    color: var(--pink-light);
+    font-weight: 600;
+  }
+
+  /* JOURNEY SECTION */
+  .journey-section {
+    background: linear-gradient(180deg, #1a0a2e 0%, #0d0618 100%);
+    padding: 100px 20px;
+    position: relative;
+  }
+
+  .journey-section .section-inner { max-width: 1100px; }
+
+  .journey-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .journey-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(123,63,196,0.08) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 36px 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .journey-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(232,70,124,0.15);
+    border-color: rgba(232,70,124,0.25);
+  }
+
+  .journey-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .journey-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .journey-card p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #b8a8cc;
+  }
+
+  /* ENTREGA SECTION */
+  .entrega-section {
+    background: radial-gradient(ellipse at 30% 50%, rgba(232,70,124,0.12) 0%, transparent 60%), #0d0618;
+    padding: 100px 20px;
+  }
+
+  .entrega-section .section-inner { max-width: 1100px; }
+
+  .entrega-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  @media(max-width:768px){
+    .entrega-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .entrega-main-card {
+    background: linear-gradient(135deg, rgba(232,70,124,0.12), rgba(123,63,196,0.12));
+    border: 1px solid rgba(232,70,124,0.25);
+    border-radius: 24px;
+    padding: 40px;
+  }
+
+  .entrega-main-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pink-light);
+    margin-bottom: 10px;
+  }
+
+  .entrega-main-card p {
+    color: #c9b8d4;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .deliverable-list {
+    list-style: none;
+  }
+
+  .deliverable-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.95rem;
+    color: #d8cce5;
+    line-height: 1.5;
+  }
+
+  .deliverable-list li:last-child { border-bottom: none; }
+
+  .deliverable-list li .check {
+    width: 26px; height: 26px;
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  /* BONUS */
+  .bonus-stack { display: flex; flex-direction: column; gap: 20px; }
+
+  .bonus-card {
+    background: linear-gradient(135deg, rgba(212,168,68,0.08), rgba(123,63,196,0.1));
+    border: 1px solid rgba(212,168,68,0.25);
+    border-radius: 20px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bonus-card::before {
+    content: 'BÔNUS';
+    position: absolute;
+    top: 12px; right: 16px;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: var(--gold-light);
+    background: rgba(212,168,68,0.15);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .bonus-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    padding-right: 70px;
+  }
+
+  .bonus-card p {
+    font-size: 0.85rem;
+    color: #b8a8cc;
+    line-height: 1.6;
+  }
+
+  /* NUTRI SECTION */
+  .nutri-section {
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1152 50%, #1a0a2e 100%);
+    padding: 80px 20px;
+    border-top: 1px solid rgba(232,70,124,0.1);
+    border-bottom: 1px solid rgba(232,70,124,0.1);
+  }
+
+  .nutri-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nutri-img-wrap {
+    position: relative;
+  }
+
+  .nutri-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 4px solid var(--gold);
+    box-shadow: 0 15px 40px rgba(212,168,68,0.3);
+  }
+
+  .nutri-content {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .nutri-content .section-eyebrow { color: var(--gold-light); }
+
+  .nutri-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .nutri-content p {
+    font-size: 0.9rem;
+    color: #c9b8d4;
+    line-height: 1.7;
+  }
+
+  .nutri-creds {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .nutri-creds span {
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-section {
+    background: linear-gradient(180deg, #0d0618 0%, #1a0a2e 100%);
+    padding: 100px 20px;
+  }
+
+  .testimonials-section .section-inner { max-width: 1100px; }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  @media(max-width:768px){
+    .videos-grid { grid-template-columns: 1fr; }
+  }
+
+  .video-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .video-card:hover { transform: translateY(-4px); }
+
+  .video-card .video-label {
+    padding: 16px 20px 10px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink-light);
+    font-weight: 700;
+  }
+
+  .video-card h4 {
+    padding: 0 20px 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* AJUSTE 3: Cards de vídeo com link para YouTube */
+  .video-link-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #0a0015;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .video-thumb {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.75);
+  }
+
+  .video-link-wrap:hover .video-thumb {
+    transform: scale(1.04);
+    filter: brightness(0.55);
+  }
+
+  .video-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px; height: 68px;
+    background: rgba(232,70,124,0.92);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 32px rgba(232,70,124,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+  }
+
+  .video-link-wrap:hover .video-play-btn {
+    transform: translate(-50%, -50%) scale(1.12);
+    box-shadow: 0 14px 48px rgba(232,70,124,0.85);
+  }
+
+  .video-play-btn svg {
+    width: 28px; height: 28px;
+    fill: #fff;
+    margin-left: 4px;
+  }
+
+  .video-cta-label {
+    position: absolute;
+    bottom: 14px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.65);
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    z-index: 2;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  /* PRICING */
+  .pricing-section {
+    background: radial-gradient(ellipse at 50% 50%, rgba(232,70,124,0.15) 0%, transparent 70%), #0d0618;
+    padding: 120px 20px;
+    text-align: center;
+  }
+
+  .pricing-card {
+    max-width: 600px;
+    margin: 60px auto 0;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(123,63,196,0.1));
+    border: 1px solid rgba(232,70,124,0.3);
+    border-radius: 30px;
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: 20%; right: 20%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--gold), var(--pink), transparent);
+  }
+
+  .pricing-badge {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #1a0a2e;
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 28px;
+  }
+
+  .price-original {
+    font-size: 1rem;
+    color: #888;
+    text-decoration: line-through;
+    margin-bottom: 8px;
+  }
+
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-main span.currency {
+    font-size: 1.5rem;
+    vertical-align: super;
+    color: var(--pink-light);
+  }
+
+  .price-note {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+  }
+
+  .price-discount-badge {
+    background: rgba(232,70,124,0.15);
+    border: 1px solid rgba(232,70,124,0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    color: var(--pink-light);
+    margin-bottom: 40px;
+    display: inline-block;
+  }
+
+  .price-discount-badge strong { color: var(--pink-light); font-weight: 800; }
+
+  .cta-mega {
+    display: block;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 22px 50px;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 20px 60px rgba(232,70,124,0.5);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+  }
+
+  .cta-mega:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 80px rgba(232,70,124,0.7);
+  }
+
+  .cta-secure {
+    font-size: 0.75rem;
+    color: #888;
+    letter-spacing: 1px;
+  }
+
+  .cta-secure span { color: var(--gold-light); }
+
+  /* FOOTER */
+  footer {
+    background: #080310;
+    padding: 20px 10px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* AJUSTE 1: Logo do footer maior */
+  footer img {
+    height: 150px;
+    margin-bottom: 20px;
+    filter: brightness(0.7);
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* Floating CTA */
+  .float-cta {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    z-index: 100;
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 10px 40px rgba(232,70,124,0.6);
+    transition: all 0.3s ease;
+    animation: float-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes float-pulse {
+    0%, 100% { box-shadow: 0 10px 40px rgba(232,70,124,0.6); transform: translateY(0); }
+    50% { box-shadow: 0 20px 60px rgba(232,70,124,0.8); transform: translateY(-4px); }
+  }
+
+  @media(max-width:480px){
+    .float-cta { bottom: 15px; right: 15px; padding: 14px 20px; font-size: 0.7rem; }
+    .hero-stats { gap: 30px; }
+  }
+
+  .divider-line {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--pink), var(--purple-light));
+    border-radius: 3px;
+    margin: 20px 0 40px;
+  }
+
+  .sparkle { color: var(--gold-light); }
+
+</style>
+</head>
+<body>
+
+<!-- FLOATING CTA -->
+<a href="https://pay.kiwify.com.br/THrFHlg" class="float-cta" target="_blank">
+  Quero começar →
+</a>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <nav class="hero-nav">
+    <!--<img src="logo-oficial.png" alt="Logo Método PSM">-->
+  </nav>
+
+  <div class="hero-badge">✦ Mentoria Permissão ✦</div>
+
+  <h1>Você já provou<br>que consegue.<br><em>Agora não pare.</em></h1>
+
+  <p class="hero-subtitle">
+    Esses 21 dias foram só o começo. Agora é hora de <em>continuar até conseguir de verdade</em> — sem guerra com você mesma, sem dietas loucas, sem voltar ao mesmo ciclo.
+  </p>
+
+  <a href="https://pay.kiwify.com.br/THrFHlg" class="cta-primary" target="_blank">
+    Quero entrar na Mentoria Permissão
+  </a>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-number">50kg</span>
+      <span class="stat-label">Eliminados sem atalhos</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">+38k</span>
+      <span class="stat-label">Seguidoras transformadas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">21</span>
+      <span class="stat-label">Dias que mudaram tudo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COPY SECTION ===== -->
+<section class="copy-section">
+  <div class="section-inner">
+    <span class="section-eyebrow">✦ A verdade que você descobriu</span>
+    <h2 class="section-title">O problema nunca<br>esteve no prato.</h2>
+    <div class="divider-line"></div>
+
+    <p class="copy-text">
+      Durante esses 21 dias, você descobriu uma coisa muito importante: <strong>não é a comida que está atrapalhando o seu emagrecimento.</strong>
+    </p>
+    <p class="copy-text">
+      O que atrapalha é tudo o que acontece <em>antes</em> dela chegar no prato. É o pensamento de "hoje eu mereço" depois de um dia difícil. É a culpa que faz você pensar "já estraguei tudo mesmo". É a autocobranças que transforma um pequeno erro em desistência.
+    </p>
+
+    <div class="copy-highlight">
+      "Você viu que o seu problema nunca foi falta de força de vontade. Nunca foi porque você é fraca. Você só estava tentando emagrecer lutando contra a comida, quando na verdade a batalha estava acontecendo dentro da sua mente."
+    </div>
+
+    <p class="copy-text">
+      E nesses 21 dias, você viu uma <strong>luz no fim do túnel</strong>. 🌟 Você viu que existe um outro caminho. Que você consegue, independentemente da sua idade, da sua história, de quantas vezes já tentou antes.
+    </p>
+    <p class="copy-text">
+      Mas agora preciso te dizer com muito carinho: <strong>não para aqui.</strong>
+    </p>
+    <p class="copy-text">
+      Não se abandone de novo. Não volte a fingir que "depois você resolve". Não deixe esses 21 dias virarem só mais uma lembrança bonita guardada numa gaveta empoeirada da sua vida.
+    </p>
+    <p class="copy-text">
+      Você construiu algo aqui. Você construiu consciência. Você construiu provas de que consegue. E perder isso agora seria como <strong>chegar na beira da ponte e voltar justamente quando ela finalmente apareceu.</strong>
+    </p>
+
+    <div style="margin-top:50px; text-align:center;">
+      <a href="https://pay.kiwify.com.br/THrFHlg" class="cta-primary" target="_blank">
+        Não quero parar aqui →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROFILE SECTION ===== -->
+<section class="profile-section">
+  <div class="profile-grid">
+    <div class="profile-image-wrap">
+      <img src="michelle-perfil.jpeg" class="profile-img-circle">
+      <div class="profile-badge-wrap">
+        <strong>50kg</strong>
+        <span>Off sem atalhos</span>
+      </div>
+    </div>
+    <div class="profile-content">
+      <span class="section-eyebrow">✦ Quem vai caminhar com você</span>
+      <h2 class="section-title">Eu sou a pessoa<br>que <span>entende sua dor</span>.</h2>
+      <div class="divider-line"></div>
+      <p class="profile-details">
+        Sou a pessoa que entende sua dor, o que você passa e como é difícil persistir depois de tantas frustrações, tantas tentativas, tantos recomeços. <strong>Já fui aquela mulher que falava: "Segunda eu começo"</strong> — e começava mesmo, mas no primeiro escorregão, tudo ia por água abaixo.
+      </p>
+      <p class="profile-details">
+        Esse ciclo só se rompeu quando eu entendi que o problema não estava no prato: <strong>mas estava na minha cabeça!</strong> Saí dos 121,5kg, eliminei 50kg e descobri uma nova Michelle: mais feliz, mais alegre, mais viva e vitoriosa.
+      </p>
+      <p class="profile-details">
+        E dentro de você tem uma mulher desse jeitinho também. <strong>Vem comigo!</strong>
+      </p>
+      <div class="credential-pills">
+        <span class="pill">💪 Mentora Comportamental</span>
+        <span class="pill">🌟 +38k Seguidoras</span>
+        <span class="pill">✨ Sem cirurgia</span>
+        <span class="pill">🔥 Método PSM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOURNEY SECTION ===== -->
+<section class="journey-section">
+  <div class="section-inner">
+    <span class="section-eyebrow" style="text-align:center; display:block;">✦ O que vamos trabalhar juntas</span>
+    <h2 class="section-title" style="text-align:center; max-width:700px; margin: 0 auto 0;">
+      Na mentoria, eu caminho<br>com você para <span style="color:var(--pink-light)">tudo isso</span>
+    </h2>
+    <div class="divider-line" style="margin: 20px auto 0;"></div>
+
+    <div class="journey-grid">
+      <div class="journey-card">
+        <span class="icon">🧠</span>
+        <h3>Fortalecer o que você começou</h3>
+        <p>Todos os avanços desses 21 dias serão a base para ir ainda mais longe. Não recomeçamos — continuamos.</p>
+      </div>
+      <div class="journey-card">
+        <span class="icon">🔍</span>
+        <h3>Identificar o que te faz abandonar</h3>
+        <p>Vamos mapear exatamente os gatilhos e padrões que fazem você desistir, antes que eles te vencessem.</p>
+      </div>
+      <div class="journey-card">
+        <span class="icon">💭</span>
+        <h3>Dominar os pensamentos sabotadores</h3>
+        <p>Aprenda a lidar com as vozes da sabotagem antes que elas virem comida, compensação ou abandono.</p>
+      </div>
+      <div class="journey-card">
+        <span class="icon">⏰</span>
+        <h3>Criar constância sem depender de motivação</h3>
+        <p>A motivação vai e vem. A constância fica. Você vai construir um sistema que funciona mesmo nos dias difíceis.</p>
+      </div>
+      <div class="journey-card">
+        <span class="icon">🏡</span>
+        <h3>Rotina real na sua vida real</h3>
+        <p>Nada de planejamentos impossíveis. Uma rotina que respeita a sua realidade — e que você consegue manter.</p>
+      </div>
+      <div class="journey-card">
+        <span class="icon">🌿</span>
+        <h3>Emagrecer de forma definitiva</h3>
+        <p>Saudável, definitivo e sem guerra. Porque você não precisa de mais uma dieta. Você precisa de uma nova mentalidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENTREGA SECTION ===== -->
+<section class="entrega-section">
+  <div class="section-inner">
+    <span class="section-eyebrow">✦ O que você recebe</span>
+    <h2 class="section-title">Tudo o que você precisa<br>para <span style="color:var(--pink-light)">não caminhar sozinha</span></h2>
+    <div class="divider-line"></div>
+
+    <div class="entrega-grid">
+      <div class="entrega-main-card">
+        <h3>📱 A Mentoria Completa</h3>
+        <p>Acompanhamento real, encontros ao vivo e todo o método que transformou a vida de centenas de mulheres.</p>
+
+        <ul class="deliverable-list">
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong style="color:#fff;">8 encontros ao vivo</strong> pelo Google Meet a cada 15 dias — acompanhamento personalizado, sem robotismo
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong style="color:#fff;">Aulas gravadas do Método PSM</strong> — todo o conteúdo que fundamenta a transformação da mente para o emagrecimento definitivo
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong style="color:#fff;">Acesso imediato</strong> ao material — você começa assim que confirmar sua inscrição
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p style="font-size:0.75rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold-light); font-weight:700; margin-bottom:20px;">✦ Bônus exclusivos</p>
+
+        <div class="bonus-stack">
+          <div class="bonus-card">
+            <h4>🎁 +2 encontros extras no Google Meet</h4>
+            <p>Além dos 8 encontros principais, você terá 2 encontros adicionais para aprofundar ainda mais a sua jornada.</p>
+          </div>
+
+          <div class="bonus-card">
+            <h4>🥗 Dieta personalizada com o Nutricionista Thiago Parrudo</h4>
+            <p>Plano alimentar elaborado especialmente para você, com estratégia nutricional completa para potencializar o seu emagrecimento.</p>
+          </div>
+
+          <div class="bonus-card">
+            <h4>🎬 Aula gravada com o Nutricionista Thiago</h4>
+            <p>Tire todas as suas dúvidas sobre alimentação em uma aula exclusiva que esclarece os principais questionamentos sobre nutrição e emagrecimento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NUTRI SECTION ===== -->
+<section class="nutri-section">
+  <div class="nutri-inner">
+    <div class="nutri-img-wrap">
+      <img src="nutrithiago.png" alt="Nutricionista Thiago Parrudo" class="nutri-img">
+    </div>
+    <div class="nutri-content">
+      <span class="section-eyebrow">✦ Especialista parceiro</span>
+      <h3>Nutricionista<br>Thiago Parrudo</h3>
+      <div class="nutri-creds">
+        <span>🏅 Clínico e Esportivo | CRN-3 68385</span>
+        <span>🎓 Pós-graduado em Emagrecimento e Metabolismo</span>
+        <span>🏆 Especialista em Nutrição Esportiva e Estética</span>
+        <span>📍 Consulta Presencial em CG/MS e Online</span>
+      </div>
+      <p style="margin-top:16px;">Com a expertise do Nutri Thiago, sua jornada ganha uma dimensão científica: alimentação estratégica alinhada com a sua transformação mental.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <span class="section-eyebrow" style="display:block; text-align:center;">✦ Resultados reais</span>
+    <h2 class="section-title" style="text-align:center;">
+      Quem já viveu essa<br><span style="color:var(--pink-light)">transformação</span>
+    </h2>
+    <div class="divider-line" style="margin: 20px auto 0;"></div>
+
+    <div class="videos-grid">
+      <!-- AJUSTE 3: Links diretos para YouTube com thumbnail e botão play -->
+      <div class="video-card">
+        <p class="video-label">✦ Depoimento real</p>
+        <h4>Ivonete — A jornada que mudou tudo</h4>
+        <a class="video-link-wrap"
+           href="https://www.youtube.com/watch?v=NNK6hrX5p6o"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Assistir depoimento de Ivonete no YouTube">
+          <img class="video-thumb"
+               src="https://img.youtube.com/vi/NNK6hrX5p6o/hqdefault.jpg"
+               alt="Depoimento Ivonete">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="video-cta-label">▶ Assistir no YouTube</span>
+        </a>
+      </div>
+
+      <div class="video-card">
+        <p class="video-label">✦ Depoimento real</p>
+        <h4>Tati — Quando a mente muda, o corpo segue</h4>
+        <a class="video-link-wrap"
+           href="https://www.youtube.com/watch?v=qzSvhaM65Fo"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Assistir depoimento de Tati no YouTube">
+          <img class="video-thumb"
+               src="https://img.youtube.com/vi/qzSvhaM65Fo/hqdefault.jpg"
+               alt="Depoimento Tati">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="video-cta-label">▶ Assistir no YouTube</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing-section">
+  <div>
+    <span class="section-eyebrow" style="display:block; text-align:center;">✦ Investimento</span>
+    <h2 class="section-title" style="text-align:center; max-width:700px; margin:0 auto;">
+      Oferta especial para<br>as alunas do desafio
+    </h2>
+    <div class="divider-line" style="margin:20px auto 0;"></div>
+  </div>
+
+  <div class="pricing-card">
+    <div class="pricing-badge">🌟 Exclusivo para Alunas do Desafio 21 Dias</div>
+
+    <p class="price-original">De R$ 1.497,00</p>
+
+    <p class="price-main">
+      <span class="currency">R$</span>973
+    </p>
+
+    <p class="price-note">Acesso completo + todos os bônus</p>
+
+    <div class="price-discount-badge">
+      🎁 <strong>Mais de R$500 de desconto</strong> — só para quem viveu o desafio
+    </div>
+
+    <a href="https://pay.kiwify.com.br/THrFHlg" class="cta-mega" target="_blank">
+      Quero entrar na Mentoria Permissão
+    </a>
+
+    <p class="cta-secure">🔒 Compra 100% segura · <span>Acesso imediato</span></p>
+  </div>
+
+  <div style="max-width:600px; margin: 60px auto 0; text-align:center;">
+    <p style="font-family:'Playfair Display',serif; font-size:1.3rem; font-style:italic; color:#d8cce5; line-height:1.7;">
+      "Você já provou que consegue dar os primeiros passos.<br>
+      Agora chegou a hora de não caminhar sozinha.<br>
+      E talvez, pela primeira vez, em vez de recomeçar de novo daqui a alguns meses…<br>
+      <strong style="color:var(--pink-light);">você finalmente continue.</strong>"
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <img src="logo-oficial.png" alt="Método PSM">
+  <p>Mentoria Permissão · Método PSM<br>
+  Transformação Comportamental para Emagrecimento Definitivo<br>
+  <span style="color:#333; font-size:0.7rem; margin-top:8px; display:block;">© 2025 Michelle · Todos os direitos reservados</span></p>
+</footer>
+
+</body>
+</html>
