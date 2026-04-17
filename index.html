@@ -70,7 +70,6 @@
     z-index: 10;
   }
 
-  /* AJUSTE 1: Logo do hero maior */
   .hero-nav img {
     height: 200px;
     filter: drop-shadow(0 0 20px rgba(232,70,124,0.6));
@@ -154,9 +153,7 @@
     justify-content: center;
   }
 
-  .stat-item {
-    text-align: center;
-  }
+  .stat-item { text-align: center; }
 
   .stat-number {
     font-family: 'Playfair Display', serif;
@@ -171,19 +168,6 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--text-gray);
-  }
-
-  /* WAVE DIVIDER */
-  .wave-divider {
-    width: 100%;
-    height: 80px;
-    overflow: hidden;
-    line-height: 0;
-  }
-
-  .wave-divider svg {
-    width: 100%;
-    height: 100%;
   }
 
   /* COPY SECTION */
@@ -237,10 +221,7 @@
     margin-bottom: 20px;
   }
 
-  .copy-text strong {
-    color: var(--white);
-    font-weight: 700;
-  }
+  .copy-text strong { color: var(--white); font-weight: 700; }
 
   .copy-highlight {
     background: linear-gradient(135deg, rgba(232,70,124,0.12), rgba(123,63,196,0.12));
@@ -280,29 +261,15 @@
     justify-content: center;
   }
 
-  /* AJUSTE 2: Foto da Michelle menor e mais harmônica */
-  /*.profile-img-circle {
-    width: 260px;
-    height: 260px;
+  .profile-img-circle {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     object-position: top center;
-    border: 5px solid transparent;
-    background: linear-gradient(135deg, var(--pink), var(--purple-light)) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    box-shadow: 0 30px 80px rgba(232,70,124,0.35), 0 0 0 8px rgba(232,70,124,0.1);
-  }*/
-  .profile-img-circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
-  border: 5px solid #ff4fa0;
-  box-shadow: 0 30px 80px rgba(232,70,124,0.35);
-}
+    border: 5px solid #ff4fa0;
+    box-shadow: 0 30px 80px rgba(232,70,124,0.35);
+  }
 
   .profile-badge-wrap {
     position: absolute;
@@ -448,9 +415,7 @@
     margin-bottom: 24px;
   }
 
-  .deliverable-list {
-    list-style: none;
-  }
+  .deliverable-list { list-style: none; }
 
   .deliverable-list li {
     display: flex;
@@ -532,9 +497,7 @@
     justify-content: center;
   }
 
-  .nutri-img-wrap {
-    position: relative;
-  }
+  .nutri-img-wrap { position: relative; }
 
   .nutri-img {
     width: 180px;
@@ -546,10 +509,7 @@
     box-shadow: 0 15px 40px rgba(212,168,68,0.3);
   }
 
-  .nutri-content {
-    flex: 1;
-    min-width: 260px;
-  }
+  .nutri-content { flex: 1; min-width: 260px; }
 
   .nutri-content .section-eyebrow { color: var(--gold-light); }
 
@@ -628,70 +588,84 @@
     color: #fff;
   }
 
-  /* AJUSTE 3: Cards de vídeo com link para YouTube */
-  .video-link-wrap {
+  /* ── FACADE PLAYER ──────────────────────────────────────────────
+     Thumbnail + botão play visíveis por padrão.
+     Ao clicar, o JS injeta o <iframe> com autoplay=1
+     e esconde thumbnail/botão. O vídeo toca na própria página.
+  ─────────────────────────────────────────────────────────────── */
+  .yt-facade {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%;
-    background: #0a0015;
-    display: block;
-    text-decoration: none;
+    padding-bottom: 56.25%;   /* proporção 16:9 */
+    background: #000;
+    cursor: pointer;
     overflow: hidden;
   }
 
-  .video-thumb {
+  .yt-facade__thumb {
     position: absolute;
-    top: 0; left: 0;
+    inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease, filter 0.4s ease;
-    filter: brightness(0.75);
+    filter: brightness(0.72);
   }
 
-  .video-link-wrap:hover .video-thumb {
+  .yt-facade:hover .yt-facade__thumb {
     transform: scale(1.04);
-    filter: brightness(0.55);
+    filter: brightness(0.5);
   }
 
-  .video-play-btn {
+  .yt-facade__btn {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 68px; height: 68px;
-    background: rgba(232,70,124,0.92);
+    width: 72px; height: 72px;
+    background: rgba(232,70,124,0.93);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 32px rgba(232,70,124,0.6);
+    box-shadow: 0 8px 32px rgba(232,70,124,0.65);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: none;
     z-index: 2;
   }
 
-  .video-link-wrap:hover .video-play-btn {
-    transform: translate(-50%, -50%) scale(1.12);
-    box-shadow: 0 14px 48px rgba(232,70,124,0.85);
+  .yt-facade:hover .yt-facade__btn {
+    transform: translate(-50%, -50%) scale(1.14);
+    box-shadow: 0 14px 48px rgba(232,70,124,0.9);
   }
 
-  .video-play-btn svg {
-    width: 28px; height: 28px;
+  .yt-facade__btn svg {
+    width: 30px; height: 30px;
     fill: #fff;
-    margin-left: 4px;
+    margin-left: 5px;
   }
 
-  .video-cta-label {
+  .yt-facade__hint {
     position: absolute;
     bottom: 14px; left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.6);
     color: #fff;
-    font-size: 0.7rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 700;
     padding: 5px 14px;
     border-radius: 20px;
     white-space: nowrap;
     z-index: 2;
-    font-family: 'Raleway', sans-serif;
+    pointer-events: none;
+  }
+
+  /* iframe inserido pelo JS */
+  .yt-facade iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    border: none;
+    z-index: 3;
   }
 
   /* PRICING */
@@ -796,12 +770,7 @@
     box-shadow: 0 30px 80px rgba(232,70,124,0.7);
   }
 
-  .cta-secure {
-    font-size: 0.75rem;
-    color: #888;
-    letter-spacing: 1px;
-  }
-
+  .cta-secure { font-size: 0.75rem; color: #888; letter-spacing: 1px; }
   .cta-secure span { color: var(--gold-light); }
 
   /* FOOTER */
@@ -812,7 +781,6 @@
     border-top: 1px solid rgba(255,255,255,0.06);
   }
 
-  /* AJUSTE 1: Logo do footer maior */
   footer img {
     height: 100px;
     margin-bottom: 20px;
@@ -847,7 +815,7 @@
 
   @keyframes float-pulse {
     0%, 100% { box-shadow: 0 10px 40px rgba(232,70,124,0.6); transform: translateY(0); }
-    50% { box-shadow: 0 20px 60px rgba(232,70,124,0.8); transform: translateY(-4px); }
+    50%       { box-shadow: 0 20px 60px rgba(232,70,124,0.8); transform: translateY(-4px); }
   }
 
   @media(max-width:480px){
@@ -863,13 +831,12 @@
   }
 
   .sparkle { color: var(--gold-light); }
-
 </style>
 </head>
 <body>
 
 <!-- FLOATING CTA -->
-<a href="https://pay.kiwify.com.br/THrFHlg" class="float-cta" target="_blank">
+<a href="https://pay.kiwify.com.br/THrFHlg?coupon=DESAFIO" class="float-cta" target="_blank">
   Quero começar →
 </a>
 
@@ -887,7 +854,7 @@
     Esses 21 dias foram só o começo. Agora é hora de <em>continuar até conseguir de verdade</em> — sem guerra com você mesma, sem dietas loucas, sem voltar ao mesmo ciclo.
   </p>
 
-  <a href="https://pay.kiwify.com.br/THrFHlg" class="cta-primary" target="_blank">
+  <a href="https://pay.kiwify.com.br/THrFHlg?coupon=DESAFIO" class="cta-primary" target="_blank">
     Quero entrar na Mentoria Permissão
   </a>
 
@@ -939,7 +906,7 @@
     </p>
 
     <div style="margin-top:50px; text-align:center;">
-      <a href="https://pay.kiwify.com.br/THrFHlg" class="cta-primary" target="_blank">
+      <a href="https://pay.kiwify.com.br/THrFHlg?coupon=DESAFIO" class="cta-primary" target="_blank">
         Não quero parar aqui →
       </a>
     </div>
@@ -1065,12 +1032,10 @@
             <h4>🎁 +2 encontros extras no Google Meet</h4>
             <p>Além dos 8 encontros principais, você terá 2 encontros adicionais para aprofundar ainda mais a sua jornada.</p>
           </div>
-
           <div class="bonus-card">
             <h4>🥗 Dieta personalizada com o Nutricionista Thiago Parrudo</h4>
             <p>Plano alimentar elaborado especialmente para você, com estratégia nutricional completa para potencializar o seu emagrecimento.</p>
           </div>
-
           <div class="bonus-card">
             <h4>🎬 Aula gravada com o Nutricionista Thiago</h4>
             <p>Tire todas as suas dúvidas sobre alimentação em uma aula exclusiva que esclarece os principais questionamentos sobre nutrição e emagrecimento.</p>
@@ -1111,46 +1076,47 @@
     <div class="divider-line" style="margin: 20px auto 0;"></div>
 
     <div class="videos-grid">
-      <!-- AJUSTE 3: Links diretos para YouTube com thumbnail e botão play -->
+
+      <!-- Vídeo 1 — Ivonete -->
       <div class="video-card">
         <p class="video-label">✦ Depoimento real</p>
         <h4>Ivonete — A jornada que mudou tudo</h4>
-        <a class="video-link-wrap"
-           href="https://www.youtube.com/watch?v=NNK6hrX5p6o"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Assistir depoimento de Ivonete no YouTube">
-          <img class="video-thumb"
+        <div class="yt-facade"
+             data-videoid="NNK6hrX5p6o"
+             role="button"
+             tabindex="0"
+             aria-label="Assistir depoimento de Ivonete">
+          <img class="yt-facade__thumb"
                src="https://img.youtube.com/vi/NNK6hrX5p6o/hqdefault.jpg"
-               alt="Depoimento Ivonete">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
+               alt="Thumbnail depoimento Ivonete"
+               loading="lazy">
+          <div class="yt-facade__btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </div>
-          <span class="video-cta-label">▶ Assistir no YouTube</span>
-        </a>
+          <span class="yt-facade__hint">▶ Clique para assistir</span>
+        </div>
       </div>
 
+      <!-- Vídeo 2 — Tati -->
       <div class="video-card">
         <p class="video-label">✦ Depoimento real</p>
         <h4>Tati — Quando a mente muda, o corpo segue</h4>
-        <a class="video-link-wrap"
-           href="https://www.youtube.com/watch?v=qzSvhaM65Fo"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Assistir depoimento de Tati no YouTube">
-          <img class="video-thumb"
+        <div class="yt-facade"
+             data-videoid="qzSvhaM65Fo"
+             role="button"
+             tabindex="0"
+             aria-label="Assistir depoimento de Tati">
+          <img class="yt-facade__thumb"
                src="https://img.youtube.com/vi/qzSvhaM65Fo/hqdefault.jpg"
-               alt="Depoimento Tati">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
+               alt="Thumbnail depoimento Tati"
+               loading="lazy">
+          <div class="yt-facade__btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </div>
-          <span class="video-cta-label">▶ Assistir no YouTube</span>
-        </a>
+          <span class="yt-facade__hint">▶ Clique para assistir</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1180,7 +1146,7 @@
       🎁 <strong>Mais de R$500 de desconto</strong> — só para quem viveu o desafio
     </div>
 
-    <a href="https://pay.kiwify.com.br/THrFHlg" class="cta-mega" target="_blank">
+    <a href="https://pay.kiwify.com.br/THrFHlg?coupon=DESAFIO" class="cta-mega" target="_blank">
       Quero entrar na Mentoria Permissão
     </a>
 
@@ -1204,6 +1170,50 @@
   Transformação Comportamental para Emagrecimento Definitivo<br>
   <span style="color:#333; font-size:0.7rem; margin-top:8px; display:block;">© 2025 Michelle · Todos os direitos reservados</span></p>
 </footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FACADE PLAYER — JavaScript
+     Ao clicar na thumbnail, injeta <iframe autoplay> no lugar.
+     O vídeo toca direto na página. Nenhuma aba nova é aberta.
+════════════════════════════════════════════════════════════════ -->
+<script>
+  document.querySelectorAll('.yt-facade').forEach(function(facade) {
+    function ativar() {
+      var id = facade.dataset.videoid;
+      var iframe = document.createElement('iframe');
+      iframe.src =
+        'https://www.youtube.com/embed/' + id +
+        '?autoplay=1&rel=0&modestbranding=1';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; ' +
+        'encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.title = facade.getAttribute('aria-label') || 'Vídeo';
+
+      // insere o iframe (fica sobre a thumbnail via z-index)
+      facade.appendChild(iframe);
+
+      // esconde os elementos da facade
+      facade.querySelector('.yt-facade__thumb').style.display = 'none';
+      facade.querySelector('.yt-facade__btn').style.display   = 'none';
+      facade.querySelector('.yt-facade__hint').style.display  = 'none';
+
+      // remove listeners para não duplicar
+      facade.removeEventListener('click', ativar);
+      facade.removeEventListener('keydown', teclado);
+    }
+
+    function teclado(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        ativar();
+      }
+    }
+
+    facade.addEventListener('click', ativar);
+    facade.addEventListener('keydown', teclado);
+  });
+</script>
 
 </body>
 </html>
